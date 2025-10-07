@@ -1,0 +1,95 @@
+name: Mark Hess
+title: Senior Software Engineer
+tagline: Building scalable solutions and leading technical teams
+
+contact:
+  github: github.com/hessmjr
+  linkedin: linkedin.com/in/markhess2
+
+experience:
+  - company: Braze
+    role: Senior Software Engineer
+    type: Full-time
+    duration: May 2021 - Present · 4 yrs 6 mos
+    location: Austin, TX
+    details: []
+
+  - company: 2U
+    role: Teaching Assistant
+    type: Part-time
+    duration: Apr 2021 - Jan 2022 · 10 mos
+    location: Austin, TX
+    details: []
+
+  - company: Datafiniti
+    role: Data Team Lead
+    type: Full-time
+    duration: Jun 2019 - May 2021 · 2 yrs
+    location: Austin, TX
+    details: []
+
+  - company: Datafiniti
+    role: Senior Data Engineer
+    duration: Sep 2017 - Jun 2019 · 1 yr 10 mos
+    location: Austin, TX
+    details: []
+
+  - company: Datafiniti
+    role: Data Engineer
+    duration: Jun 2015 - Sep 2017 · 2 yrs 4 mos
+    location: Austin, TX
+    details: []
+
+  - company: Wells Fargo
+    role: Operations Analyst
+    duration: Dec 2013 - Jun 2015 · 1 yr 7 mos
+    location: San Antonio, TX
+    details: []
+
+  - company: Wells Fargo
+    role: Work Director
+    duration: Sep 2011 - Dec 2013 · 2 yrs 4 mos
+    location: San Antonio, TX
+    details: []
+
+  - company: Crescent Acoustical Ceilings and Specialty Systems, LLC
+    role: Co-founder, Project Manager
+    duration: Aug 2009 - Jul 2010 · 1 yr
+    location: Atlanta, GA
+    details: []
+
+  - company: United Drywall Group
+    role: Project Manager
+    duration: Jan 2008 - Jul 2009 · 1 yr 7 mos
+    location: Kennesaw, GA
+    details: []
+
+education:
+  - school: Georgia Institute of Technology
+    degree: Master of Science (M.S.), Computer Science
+    duration: 2016 - 2019
+
+  - school: Georgia Institute of Technology
+    degree: Bachelor of Science (B.S.), Building Construction
+    duration: 2003 - 2007
+
+certifications:
+  - title: Object-Oriented Design of Data Structures in Java Specialization
+    issuer: UC San Diego
+    platform: Coursera Course Certificates
+    issued: Apr 2016
+    credentialId: UW3N2LE7SGBS
+
+  - title: Data Analysis, Reasoning, and Writing Specialization
+    issuer: Duke University
+    platform: Coursera Course Certificates
+    issued: Mar 2016
+    credentialId: NGNSKVP9PBUY
+
+skills:
+  - category: Languages
+    items: Python, Java, JavaScript, SQL, Go
+  - AWS
+
+hobbies:
+  - Reading
