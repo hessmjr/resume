@@ -8,18 +8,21 @@
     --bg-primary: #0a0a0a;
     --bg-secondary: #1a1a1a;
     --bg-tertiary: #252525;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --accent: #3b82f6;
-    --accent-hover: #60a5fa;
-    --border: #333;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --accent: #00aaff;
+    --accent-hover: #0066aa;
+    --accent-glow: #00aaff;
+    --border: #333333;
+    --border-accent: #00aaff;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.4;
+    font-size: 13px;
     overflow-x: hidden;
 }
 
@@ -34,43 +37,44 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px;
     position: relative;
     z-index: 1;
 }
 
 header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: left;
+    border-bottom: 1px solid var(--border-accent);
+    padding-bottom: 15px;
 }
 
 #name {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    background: linear-gradient(135deg, var(--text-primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 2px;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 14px;
     color: var(--accent);
-    margin-bottom: 0.25rem;
+    margin-bottom: 2px;
+    font-weight: 600;
 }
 
 .tagline {
-    font-size: 1rem;
+    font-size: 11px;
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin-bottom: 8px;
 }
 
 .contact-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 20px;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
@@ -78,38 +82,40 @@ header {
 .contact-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s;
+    font-size: 11px;
+    transition: color 0.2s;
 }
 
 .contact-links a:hover {
-    color: var(--accent);
+    color: var(--accent-hover);
+    text-shadow: 0 0 8px rgba(0, 170, 255, 0.6);
 }
 
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s forwards;
+    transform: translateY(10px);
+    animation: fadeInUp 0.4s forwards;
 }
 
 .section:nth-child(2) {
-    animation-delay: 0.1s;
+    animation-delay: 0.05s;
 }
 
 .section:nth-child(3) {
-    animation-delay: 0.2s;
+    animation-delay: 0.1s;
 }
 
 .section:nth-child(4) {
-    animation-delay: 0.3s;
+    animation-delay: 0.15s;
 }
 
 .section:nth-child(5) {
-    animation-delay: 0.4s;
+    animation-delay: 0.2s;
 }
 
 .section:nth-child(6) {
-    animation-delay: 0.5s;
+    animation-delay: 0.25s;
 }
 
 @keyframes fadeInUp {
@@ -120,51 +126,55 @@ header {
 }
 
 .section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 16px;
+    margin-bottom: 8px;
     color: var(--text-primary);
-    position: relative;
-    display: inline-block;
-}
-
-.section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 3px solid var(--accent);
+    padding-left: 8px;
 }
 
 .timeline,
 .card-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 4px;
 }
 
-.timeline-item,
-.card-item {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1rem;
-    transition: all 0.3s;
+.timeline-item {
+    background: transparent;
+    border: none;
+    padding: 4px 0 4px 16px;
+    margin-bottom: 6px;
+    transition: all 0.2s;
     cursor: pointer;
 }
 
-.timeline-item:hover,
+.timeline-item:hover {
+    border-left: 2px solid rgba(0, 102, 170, 0.5);
+    box-shadow: 0 0 8px rgba(0, 170, 255, 0.1);
+    transform: translateX(1px);
+}
+
+.card-item {
+    background: transparent;
+    border: none;
+    padding: 2px 0 2px 16px;
+    margin-bottom: 4px;
+    cursor: default;
+}
+
 .card-item:hover {
-    border-color: var(--accent);
-    transform: translateX(4px);
+    /* No hover effects */
 }
 
 .item-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 8px;
 }
 
 .item-main {
@@ -172,36 +182,39 @@ header {
 }
 
 .item-title {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.15rem;
+    margin-bottom: 1px;
 }
 
 .item-subtitle {
     color: var(--accent);
-    margin-bottom: 0.15rem;
-    font-size: 0.95rem;
+    margin-bottom: 1px;
+    font-size: 11px;
+    font-weight: 600;
 }
 
 .item-meta {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 10px;
 }
 
 .item-type {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
+    padding: 2px 6px;
     background: var(--bg-tertiary);
-    border-radius: 12px;
-    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    font-size: 9px;
     color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .expand-icon {
     color: var(--text-secondary);
-    font-size: 1.5rem;
-    transition: transform 0.3s;
+    font-size: 12px;
+    transition: transform 0.2s;
     flex-shrink: 0;
 }
 
@@ -212,14 +225,14 @@ header {
 .item-details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.2s ease-out;
     margin-top: 0;
 }
 
 .item-details.expanded {
-    max-height: 300px;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
+    max-height: 200px;
+    margin-top: 6px;
+    padding-top: 6px;
     border-top: 1px solid var(--border);
 }
 
@@ -230,60 +243,80 @@ header {
 
 .item-details li {
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
+    margin-bottom: 2px;
+    padding-left: 12px;
     position: relative;
+    font-size: 10px;
 }
 
 .item-details li::before {
-    content: '▹';
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Hobbies - Simple horizontal bullet list */
+.hobbies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-left: 16px;
+}
+
+.hobby-item {
+    color: var(--text-secondary);
+    font-size: 11px;
+    position: relative;
+    padding-left: 8px;
+}
+
+.hobby-item::before {
+    content: '•';
     position: absolute;
     left: 0;
     color: var(--accent);
 }
 
-.skills-grid,
-.hobbies-grid {
+/* Skills - Simple block setup without background */
+.skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.75rem;
+    gap: 4px;
 }
 
-.skill-item,
-.hobby-item {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.75rem;
-    text-align: center;
-    transition: all 0.3s;
-}
-
-.skill-item:hover,
-.hobby-item:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
+.skill-item {
+    background: transparent;
+    border: none;
+    padding: 4px 0;
+    text-align: left;
+    cursor: default;
 }
 
 .skill-category {
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
+    margin-bottom: 2px;
+    font-size: 11px;
 }
 
 .skill-list {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: 10px;
 }
 
 @media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
     #name {
-        font-size: 2rem;
+        font-size: 20px;
     }
 
     .subtitle {
-        font-size: 1rem;
+        font-size: 12px;
     }
 
     .item-header {
@@ -292,6 +325,6 @@ header {
 
     .skills-grid,
     .hobbies-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }
 }
