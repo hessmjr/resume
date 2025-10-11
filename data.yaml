@@ -11,7 +11,10 @@ experience:
     role: Senior Software Engineer
     duration: May 2021 - Present · 4 yrs 6 mos
     location: Austin, TX
-    details: []
+    details:
+    - Developed agentic LLM systems to assist inautomated customer engagement workflows
+    - Contributed to predictive suite for churn modeling and user engagement scoring
+    - Built full-stack ML features from customer UI components through model deployment
 
   - company: 2U
     role: Teaching Assistant
@@ -24,43 +27,52 @@ experience:
     role: Data Team Lead
     duration: Jun 2019 - May 2021 · 2 yrs
     location: Austin, TX
-    details: []
+    details:
+    - Lead data engineering team responsible for data pipeline and analytics infrastructure
 
   - company: Datafiniti
     role: Senior Data Engineer
     duration: Sep 2017 - Jun 2019 · 1 yr 10 mos
     location: Austin, TX
-    details: []
+    details:
+    - Designed and maintained ETL pipelines processing third-party data sources at scale
 
   - company: Datafiniti
     role: Data Engineer
     duration: Jun 2015 - Sep 2017 · 2 yrs 4 mos
     location: Austin, TX
-    details: []
+    details:
+    - Enhanced web crawling infrastructure for data acquisition and validation
 
   - company: Wells Fargo
     role: Operations Analyst
     duration: Dec 2013 - Jun 2015 · 1 yr 7 mos
     location: San Antonio, TX
-    details: []
+    details:
+    - Performed data transformation workflows to support risk and operations analytics
+    - Implemented bespoke analytic tools
 
   - company: Wells Fargo
     role: Work Director
     duration: Sep 2011 - Dec 2013 · 2 yrs 4 mos
     location: San Antonio, TX
-    details: []
+    details:
+    - Managed 60+ person team for data operations and analytics
+    - Oversaw data warehouse and reporting systems for home mortgage origination
 
   - company: Crescent Acoustical Ceilings and Specialty Systems, LLC
     role: Co-founder, Project Manager
     duration: Aug 2009 - Jul 2010 · 1 yr
     location: Atlanta, GA
-    details: []
+    details:
 
   - company: United Drywall Group
     role: Project Manager
     duration: Jan 2008 - Jul 2009 · 1 yr 7 mos
     location: Kennesaw, GA
-    details: []
+    details:
+    - Managed project timelines and resource allocation for commercial construction operations
+    - Estimated materials and labor costs for construction projects
 
 education:
   - school: Georgia Institute of Technology
