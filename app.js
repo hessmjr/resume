@@ -6,7 +6,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const particles = [];
-const particleCount = 80;
+const particleCount = 180;
 
 class Particle {
     constructor() {
@@ -77,7 +77,6 @@ async function loadData() {
         const data = jsyaml.load(yamlText);
         populatePage(data);
     } catch (error) {
-        console.error('Error loading data:', error);
         // Site still functions with empty sections
     }
 }
@@ -143,9 +142,9 @@ function populatePage(data) {
 
 function createTimelineItem(exp) {
     const item = document.createElement('div');
-    item.className = 'timeline-item';
-
     const hasDetails = exp.details && exp.details.length > 0;
+
+    item.className = hasDetails ? 'timeline-item' : 'timeline-item no-details';
 
     item.innerHTML = `
         <div class="item-header">

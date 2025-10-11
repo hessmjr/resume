@@ -152,6 +152,10 @@ header {
     cursor: pointer;
 }
 
+.timeline-item.no-details {
+    cursor: default;
+}
+
 .timeline-item:hover {
     border-left: 2px solid rgba(0, 102, 170, 0.5);
     box-shadow: 0 0 8px rgba(0, 170, 255, 0.1);
