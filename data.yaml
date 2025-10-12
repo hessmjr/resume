@@ -8,33 +8,33 @@ contact:
 experience:
   - company: Braze
     role: Senior Software Engineer
-    duration: May 2021 - Present · 4 yrs 6 mos
+    duration: May 2021 - Present
     location: Austin, TX
     details:
-    - Implemented ML models and end-to-end pipeline to collect, analyze, and predict resource utilization, reducing cloud infrastructure costs by optimizing capacity planning
-    - Enhanced churn and event prediction capabilities through upgraded protocol implementation
-    - Developed agentic AI integrations across platform UI and backend systems
-    - Built AB Test Projection feature including implementation and user interface
-    - Contributed to Personalized A/B Testing product development across full stack
-    - Architected ML model pipeline improvements for training, deployment, and serving infrastructure
+    - Architected enhanced churn and event prediction capabilities through upgraded protocol implementation with more encompassing data sets and UI
+    - Contributed to ML model pipeline with improvements for training, deployment, and serving infrastructure
+    - Implemented ML-driven resource forecasting pipeline to predict capacity needs and optimize cloud infrastructure costs
+    - Built AB Test Projection tool using embeddings to match new tests with semantically similar historical tests and LLMs to generate outcome projections
+    - Contributed to Personalized A/B Testing feature with full-stack improvements
+    - Developed agentic AI integrations across our platform enabling autonomous workflows for customers
 
   - company: 2U
     role: Teaching Assistant
     type: Part-time
-    duration: Apr 2021 - Jan 2022 · 10 mos
+    duration: Apr 2021 - Jan 2022
     location: Austin, TX
     details: []
 
   - company: Datafiniti
     role: Data Team Lead
-    duration: Jun 2019 - May 2021 · 2 yrs
+    duration: Jun 2019 - May 2021
     location: Austin, TX
     details:
     - Led team of data engineers responsible for ETL pipeline development, infrastructure management, and analytics platform operations
 
   - company: Datafiniti
     role: Senior Data Engineer
-    duration: Sep 2017 - Jun 2019 · 1 yr 10 mos
+    duration: Sep 2017 - Jun 2019
     location: Austin, TX
     details:
     - Designed and implemented scalable ETL pipelines processing millions of records from third-party data sources
@@ -42,14 +42,14 @@ experience:
 
   - company: Datafiniti
     role: Data Engineer
-    duration: Jun 2015 - Sep 2017 · 2 yrs 4 mos
+    duration: Jun 2015 - Sep 2017
     location: Austin, TX
     details:
     - Enhanced web crawling infrastructure to improve data acquisition throughput and validation accuracy
 
   - company: Wells Fargo
     role: Operations Analyst
-    duration: Dec 2013 - Jun 2015 · 1 yr 7 mos
+    duration: Dec 2013 - Jun 2015
     location: San Antonio, TX
     details:
     - Developed data transformation workflows supporting risk assessment and operations analytics
@@ -57,7 +57,7 @@ experience:
 
   - company: Wells Fargo
     role: Work Director
-    duration: Sep 2011 - Dec 2013 · 2 yrs 4 mos
+    duration: Sep 2011 - Dec 2013
     location: San Antonio, TX
     details:
     - Managed 60+ person team overseeing data operations and analytics for mortgage origination business
@@ -65,13 +65,13 @@ experience:
 
   - company: Crescent Acoustical Ceilings and Specialty Systems, LLC
     role: Co-founder, Project Manager
-    duration: Aug 2009 - Jul 2010 · 1 yr
+    duration: Aug 2009 - Jul 2010
     location: Atlanta, GA
     details: []
 
   - company: United Drywall Group
-    role: Project Manager
-    duration: Jan 2008 - Jul 2009 · 1 yr 7 mos
+    role: Project Manager/Estimator
+    duration: Jan 2008 - Jul 2009
     location: Kennesaw, GA
     details:
     - Managed project schedules, resource allocation, and vendor coordination for commercial construction projects
@@ -87,40 +87,24 @@ education:
     duration: 2003 - 2007
 
 skills:
-  - Distributed systems design
-  - Microservices architecture
-  - Event-driven architecture
-  - Database schema design
-  - API design and versioning
-  - System monitoring and observability
-  - Production debugging
-  - Incident response
-  - Extract, transform, and load (ETL)
-  - Model evaluation and validation
-  - Model deployment and serving
-  - ML Pipeline
-  - Model monitoring and drift detection
+  - Full-Stack Development
+  - Distributed systems and micro-services architecture
+  - Database and API design
+  - System monitoring, debugging, and incident response
+  - ETL pipelines and data processing
+  - ML model development, deployment, and monitoring
   - A/B testing and experimentation
-  - Cross-functional collaboration
-  - Agile/Scrum methodologies
-  - Sprint planning and estimation
-  - Technical roadmap planning
-  - Stakeholder communication
-  - Cross-team coordination
-  - Requirements gathering and scope definition
-  - Project timeline management
-  - Risk identification and mitigation
-  - Technical documentation
-  - Code review processes
-  - Technical leadership/mentorship
+  - Technical leadership and mentorship
+  - Cross-functional collaboration and stakeholder communication
+  - Agile/Scrum and project management
+  - Technical documentation and code review
 
 tools:
   - Languages & Frameworks: Python, Ruby, Node, Typescript, Java, Go, React, Remix
+  - Data Processing: Pandas, NumPy
   - Databases: MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch
   - Infrastructure & DevOps: Docker, Kubernetes, AWS, GCP, Terraform, Git, GitHub, GitHub Actions, Jenkins, Buildkite
   - APIs & Messaging: GraphQL, REST, Postman, Kafka, RabbitMQ
-  - ML Frameworks: PyTorch, TensorFlow/Keras, scikit-learn, Hugging Face Transformers
-  - LLM & Gen AI Tools: OpenAI API, Anthropic API, Gemini API, LangChain, pgvector
-  - MLOps: Kubeflow, MLflow
-  - Data Processing: Pandas, NumPy, Airflow
-  - Specialized: CUDA, ONNX
+  - MLOps: Airflow
+  - ML Frameworks: PyTorch, TensorFlow/Keras, scikit-learn
+  - LLM & Gen AI Tools: OpenAI/Anthropic/Gemini, LangChain, pgvector

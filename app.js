@@ -148,7 +148,6 @@ function createTimelineItem(exp) {
                     ${exp.duration}${exp.location ? ` · ${exp.location}` : ''}
                 </div>
             </div>
-            ${hasDetails ? '<span class="expand-icon">▼</span>' : ''}
         </div>
         ${hasDetails ? `
             <div class="item-details">
@@ -162,11 +161,9 @@ function createTimelineItem(exp) {
     if (hasDetails) {
         const header = item.querySelector('.item-header');
         const details = item.querySelector('.item-details');
-        const icon = item.querySelector('.expand-icon');
 
         header.addEventListener('click', () => {
             details.classList.toggle('expanded');
-            icon.classList.toggle('expanded');
         });
     }
 
