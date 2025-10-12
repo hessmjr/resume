@@ -229,12 +229,16 @@ header {
 .item-details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.15s ease-out;
     margin-top: 0;
 }
 
 .item-details.expanded {
     max-height: 200px;
+    opacity: 1;
+    transform: translateY(0);
     margin-top: 6px;
     padding-top: 6px;
     border-top: 1px solid var(--border);
@@ -261,36 +265,37 @@ header {
     font-weight: bold;
 }
 
-/* Hobbies - Simple horizontal bullet list */
-.hobbies-grid {
+/* Skills - Simple horizontal bullet list (for simple string items) */
+.skills-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     padding-left: 16px;
 }
 
-.hobby-item {
+.skill-item {
     color: var(--text-secondary);
     font-size: 11px;
     position: relative;
     padding-left: 8px;
 }
 
-.hobby-item::before {
+.skill-item::before {
     content: '•';
     position: absolute;
     left: 0;
     color: var(--accent);
 }
 
-/* Skills - Simple block setup without background */
-.skills-grid {
+/* Tools - Grouped by category lists (for categorized items) */
+.tools-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 4px;
+    padding-left: 16px;
 }
 
-.skill-item {
+.tool-item {
     background: transparent;
     border: none;
     padding: 4px 0;
@@ -298,14 +303,14 @@ header {
     cursor: default;
 }
 
-.skill-category {
+.tool-category {
     font-weight: 600;
     color: var(--accent);
     margin-bottom: 2px;
     font-size: 11px;
 }
 
-.skill-list {
+.tool-list {
     color: var(--text-secondary);
     font-size: 10px;
 }
@@ -327,8 +332,8 @@ header {
         flex-direction: column;
     }
 
-    .skills-grid,
-    .hobbies-grid {
+    .tools-grid,
+    .skills-grid {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }
 }

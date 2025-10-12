@@ -28,7 +28,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(99, 102, 241, 0.3)';
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.6)';
         ctx.fill();
     }
 }
@@ -51,8 +51,8 @@ function animate() {
 
             if (distance < 120) {
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - distance / 120)})`;
-                ctx.lineWidth = 1;
+                ctx.strokeStyle = `rgba(99, 102, 241, ${0.4 * (1 - distance / 120)})`;
+                ctx.lineWidth = 1.5;
                 ctx.moveTo(particle.x, particle.y);
                 ctx.lineTo(otherParticle.x, otherParticle.y);
                 ctx.stroke();
@@ -115,14 +115,6 @@ function populatePage(data) {
         });
     }
 
-    if (data.certifications && data.certifications.length > 0) {
-        const certList = document.getElementById('certifications-list');
-        data.certifications.forEach(cert => {
-            const item = createCertificationItem(cert);
-            certList.appendChild(item);
-        });
-    }
-
     if (data.skills && data.skills.length > 0) {
         const skillsList = document.getElementById('skills-list');
         data.skills.forEach(skill => {
@@ -131,11 +123,11 @@ function populatePage(data) {
         });
     }
 
-    if (data.hobbies && data.hobbies.length > 0) {
-        const hobbiesList = document.getElementById('hobbies-list');
-        data.hobbies.forEach(hobby => {
-            const item = createHobbyItem(hobby);
-            hobbiesList.appendChild(item);
+    if (data.tools && data.tools.length > 0) {
+        const toolsList = document.getElementById('tools-list');
+        data.tools.forEach(tool => {
+            const item = createToolItem(tool);
+            toolsList.appendChild(item);
         });
     }
 }
@@ -196,45 +188,29 @@ function createEducationItem(edu) {
     return item;
 }
 
-function createCertificationItem(cert) {
-    const item = document.createElement('div');
-    item.className = 'card-item';
-
-    item.innerHTML = `
-        <div class="item-main">
-            <div class="item-title">${cert.title}</div>
-            <div class="item-subtitle">${cert.issuer}</div>
-            <div class="item-meta">
-                ${cert.platform ? `${cert.platform} · ` : ''}
-                ${cert.issued}
-                ${cert.credentialId ? ` · ${cert.credentialId}` : ''}
-            </div>
-        </div>
-    `;
-
-    return item;
-}
-
 function createSkillItem(skill) {
     const item = document.createElement('div');
     item.className = 'skill-item';
-
-    if (typeof skill === 'string') {
-        item.innerHTML = `<div class="skill-list">${skill}</div>`;
-    } else {
-        item.innerHTML = `
-            <div class="skill-category">${skill.category}</div>
-            <div class="skill-list">${Array.isArray(skill.items) ? skill.items.join(', ') : skill.items}</div>
-        `;
-    }
-
+    item.textContent = skill;
     return item;
 }
 
-function createHobbyItem(hobby) {
+function createToolItem(tool) {
     const item = document.createElement('div');
-    item.className = 'hobby-item';
-    item.textContent = hobby;
+    item.className = 'tool-item';
+
+    if (typeof tool === 'string') {
+        item.innerHTML = `<div class="tool-list">${tool}</div>`;
+    } else {
+        const category = Object.keys(tool)[0];
+        const items = tool[category];
+
+        item.innerHTML = `
+            <div class="tool-category">${category}</div>
+            <div class="tool-list">${Array.isArray(items) ? items.join(', ') : items}</div>
+        `;
+    }
+
     return item;
 }
 

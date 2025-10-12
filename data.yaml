@@ -1,6 +1,5 @@
 name: Mark Hess
 title: Senior Software Engineer
-tagline: Building scalable solutions and leading technical teams
 
 contact:
   github: github.com/hessmjr
@@ -12,9 +11,12 @@ experience:
     duration: May 2021 - Present · 4 yrs 6 mos
     location: Austin, TX
     details:
-    - Developed agentic LLM systems to assist inautomated customer engagement workflows
-    - Contributed to predictive suite for churn modeling and user engagement scoring
-    - Built full-stack ML features from customer UI components through model deployment
+    - Implemented ML models and end-to-end pipeline to collect, analyze, and predict resource utilization, reducing cloud infrastructure costs by optimizing capacity planning
+    - Enhanced churn and event prediction capabilities through upgraded protocol implementation
+    - Developed agentic AI integrations across platform UI and backend systems
+    - Built AB Test Projection feature including implementation and user interface
+    - Contributed to Personalized A/B Testing product development across full stack
+    - Architected ML model pipeline improvements for training, deployment, and serving infrastructure
 
   - company: 2U
     role: Teaching Assistant
@@ -28,51 +30,52 @@ experience:
     duration: Jun 2019 - May 2021 · 2 yrs
     location: Austin, TX
     details:
-    - Lead data engineering team responsible for data pipeline and analytics infrastructure
+    - Led team of data engineers responsible for ETL pipeline development, infrastructure management, and analytics platform operations
 
   - company: Datafiniti
     role: Senior Data Engineer
     duration: Sep 2017 - Jun 2019 · 1 yr 10 mos
     location: Austin, TX
     details:
-    - Designed and maintained ETL pipelines processing third-party data sources at scale
+    - Designed and implemented scalable ETL pipelines processing millions of records from third-party data sources
+    - Architected improved data model and migrated to NoSQL database solution to enhance query performance and scalability
 
   - company: Datafiniti
     role: Data Engineer
     duration: Jun 2015 - Sep 2017 · 2 yrs 4 mos
     location: Austin, TX
     details:
-    - Enhanced web crawling infrastructure for data acquisition and validation
+    - Enhanced web crawling infrastructure to improve data acquisition throughput and validation accuracy
 
   - company: Wells Fargo
     role: Operations Analyst
     duration: Dec 2013 - Jun 2015 · 1 yr 7 mos
     location: San Antonio, TX
     details:
-    - Performed data transformation workflows to support risk and operations analytics
-    - Implemented bespoke analytic tools
+    - Developed data transformation workflows supporting risk assessment and operations analytics
+    - Built bespoke analytical tools to automate reporting and improve operational efficiency
 
   - company: Wells Fargo
     role: Work Director
     duration: Sep 2011 - Dec 2013 · 2 yrs 4 mos
     location: San Antonio, TX
     details:
-    - Managed 60+ person team for data operations and analytics
-    - Oversaw data warehouse and reporting systems for home mortgage origination
+    - Managed 60+ person team overseeing data operations and analytics for mortgage origination business
+    - Directed data warehouse architecture and reporting systems supporting enterprise-wide decision making
 
   - company: Crescent Acoustical Ceilings and Specialty Systems, LLC
     role: Co-founder, Project Manager
     duration: Aug 2009 - Jul 2010 · 1 yr
     location: Atlanta, GA
-    details:
+    details: []
 
   - company: United Drywall Group
     role: Project Manager
     duration: Jan 2008 - Jul 2009 · 1 yr 7 mos
     location: Kennesaw, GA
     details:
-    - Managed project timelines and resource allocation for commercial construction operations
-    - Estimated materials and labor costs for construction projects
+    - Managed project schedules, resource allocation, and vendor coordination for commercial construction projects
+    - Developed cost estimates for materials and labor across multiple concurrent construction bids
 
 education:
   - school: Georgia Institute of Technology
@@ -83,23 +86,41 @@ education:
     degree: Bachelor of Science (B.S.), Building Construction
     duration: 2003 - 2007
 
-certifications:
-  - title: Object-Oriented Design of Data Structures in Java Specialization
-    issuer: UC San Diego
-    platform: Coursera Course Certificates
-    issued: Apr 2016
-    credentialId: UW3N2LE7SGBS
-
-  - title: Data Analysis, Reasoning, and Writing Specialization
-    issuer: Duke University
-    platform: Coursera Course Certificates
-    issued: Mar 2016
-    credentialId: NGNSKVP9PBUY
-
 skills:
-  - category: Languages
-    items: Python, Java, JavaScript, SQL, Go
-  - AWS
+  - Distributed systems design
+  - Microservices architecture
+  - Event-driven architecture
+  - Database schema design
+  - API design and versioning
+  - System monitoring and observability
+  - Production debugging
+  - Incident response
+  - Extract, transform, and load (ETL)
+  - Model evaluation and validation
+  - Model deployment and serving
+  - ML Pipeline
+  - Model monitoring and drift detection
+  - A/B testing and experimentation
+  - Cross-functional collaboration
+  - Agile/Scrum methodologies
+  - Sprint planning and estimation
+  - Technical roadmap planning
+  - Stakeholder communication
+  - Cross-team coordination
+  - Requirements gathering and scope definition
+  - Project timeline management
+  - Risk identification and mitigation
+  - Technical documentation
+  - Code review processes
+  - Technical leadership/mentorship
 
-hobbies:
-  - Reading
+tools:
+  - Languages & Frameworks: Python, Ruby, Node, Typescript, Java, Go, React, Remix
+  - Databases: MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch
+  - Infrastructure & DevOps: Docker, Kubernetes, AWS, GCP, Terraform, Git, GitHub, GitHub Actions, Jenkins, Buildkite
+  - APIs & Messaging: GraphQL, REST, Postman, Kafka, RabbitMQ
+  - ML Frameworks: PyTorch, TensorFlow/Keras, scikit-learn, Hugging Face Transformers
+  - LLM & Gen AI Tools: OpenAI API, Anthropic API, Gemini API, LangChain, pgvector
+  - MLOps: Kubeflow, MLflow
+  - Data Processing: Pandas, NumPy, Airflow
+  - Specialized: CUDA, ONNX
