@@ -169,7 +169,6 @@ function populatePage(data) {
         return;
     }
 
-    // Safe DOM manipulation with error handling
     function setTextContent(elementId, text) {
         const element = document.getElementById(elementId);
         if (element && text) {
@@ -193,15 +192,23 @@ function populatePage(data) {
         Object.entries(data.contact).forEach(([key, value]) => {
             if (!value) return;
 
-            const link = createElement('a', '', value);
-            // Auto-generate appropriate URLs based on contact type
-            link.href = key === 'email' ? `mailto:${value}` : `https://${value}`;
+            const sanitizedValue = String(value).trim();
+            if (!sanitizedValue) return;
+
+            // Prevent XSS: block malicious protocols
+            const lowerValue = sanitizedValue.toLowerCase();
+            if (lowerValue.startsWith('javascript:') || lowerValue.startsWith('data:') || lowerValue.startsWith('vbscript:')) {
+                return;
+            }
+
+            const link = createElement('a', '', sanitizedValue);
+            link.href = `https://${sanitizedValue}`;
             link.target = '_blank';
+            link.rel = 'noopener noreferrer';
             contactDiv.appendChild(link);
         });
     }
 
-    // reusable list population with error handling
     function populateList(listId, data, createItemFunction) {
         if (!data || data.length === 0) return;
 
@@ -217,13 +224,42 @@ function populatePage(data) {
         });
     }
 
-    populateList('experience-list', data.experience, createTimelineItem);
+    populateExperience(data.experience);
     populateList('education-list', data.education, createEducationItem);
     populateList('skills-list', data.skills, createSkillItem);
     populateList('tools-list', data.tools, createToolItem);
 }
 
-// reduces repetitive DOM creation
+function populateExperience(experiences) {
+    if (!experiences || experiences.length === 0) return;
+
+    const listElement = document.getElementById('experience-list');
+    if (!listElement) {
+        console.warn('Experience list element not found');
+        return;
+    }
+
+    const groupedExperiences = [];
+    let currentGroup = null;
+
+    experiences.forEach(exp => {
+        if (!currentGroup || currentGroup.company !== exp.company) {
+            currentGroup = {
+                company: exp.company,
+                roles: [exp]
+            };
+            groupedExperiences.push(currentGroup);
+        } else {
+            currentGroup.roles.push(exp);
+        }
+    });
+
+    groupedExperiences.forEach(group => {
+        const companyGroup = createCompanyGroup(group);
+        listElement.appendChild(companyGroup);
+    });
+}
+
 function createElement(tag, className, textContent = '') {
     const element = document.createElement(tag);
     if (className) element.className = className;
@@ -231,7 +267,6 @@ function createElement(tag, className, textContent = '') {
     return element;
 }
 
-// Reusable header structure for timeline and education items
 function createItemHeader(title, subtitle, meta) {
     const itemHeader = createElement('div', 'item-header');
     const itemMain = createElement('div', 'item-main');
@@ -248,23 +283,47 @@ function createItemHeader(title, subtitle, meta) {
     return itemHeader;
 }
 
-function createTimelineItem(exp) {
+function createCompanyGroup(group) {
+    const companyContainer = createElement('div', 'company-group');
+
+    const companyHeader = createElement('div', 'company-header', group.company);
+    companyContainer.appendChild(companyHeader);
+
+    const rolesContainer = createElement('div', 'roles-container');
+
+    group.roles.forEach(exp => {
+        const roleItem = createRoleItem(exp);
+        rolesContainer.appendChild(roleItem);
+    });
+
+    companyContainer.appendChild(rolesContainer);
+
+    return companyContainer;
+}
+
+function createRoleItem(exp) {
     const item = createElement('div');
     const hasDetails = exp.details && exp.details.length > 0;
 
-    item.className = hasDetails ? 'timeline-item' : 'timeline-item no-details';
+    item.className = hasDetails ? 'role-item' : 'role-item no-details';
 
-    let metaContent = '';
-    if (exp.type) {
-        metaContent += exp.type + ' · ';
-    }
-    metaContent += exp.duration;
+    const roleHeader = createElement('div', 'role-header');
+    const roleMain = createElement('div', 'role-main');
+
+    const roleTitle = createElement('div', 'role-title', exp.role);
+    const roleDuration = createElement('div', 'role-meta', exp.duration);
+
+    roleMain.appendChild(roleTitle);
+    roleMain.appendChild(roleDuration);
+
     if (exp.location) {
-        metaContent += ' · ' + exp.location;
+        const roleLocation = createElement('div', 'role-meta', exp.location);
+        roleMain.appendChild(roleLocation);
     }
 
-    const itemHeader = createItemHeader(exp.role, exp.company, metaContent);
-    item.appendChild(itemHeader);
+    roleHeader.appendChild(roleMain);
+
+    item.appendChild(roleHeader);
 
     if (hasDetails) {
         const itemDetails = createElement('div', 'item-details');
@@ -278,8 +337,7 @@ function createTimelineItem(exp) {
         itemDetails.appendChild(detailsList);
         item.appendChild(itemDetails);
 
-        // Interactive expand/collapse functionality
-        itemHeader.addEventListener('click', () => {
+        roleHeader.addEventListener('click', () => {
             itemDetails.classList.toggle('expanded');
         });
     }
@@ -305,7 +363,6 @@ function createToolItem(tool) {
         const toolList = createElement('div', 'tool-list', tool);
         item.appendChild(toolList);
     } else {
-        // Handle categorized tools (object format)
         const category = Object.keys(tool)[0];
         const items = tool[category];
 

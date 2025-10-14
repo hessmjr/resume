@@ -6,13 +6,10 @@
 
 :root {
     --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-tertiary: #252525;
     --text-primary: #ffffff;
     --text-secondary: #aaaaaa;
     --accent: #00aaff;
     --accent-hover: #0066aa;
-    --accent-glow: #00aaff;
     --border: #333333;
     --border-accent: #00aaff;
 }
@@ -143,23 +140,66 @@ header {
     gap: 4px;
 }
 
-.timeline-item {
-    background: transparent;
-    border: none;
-    padding: 4px 0 4px 16px;
-    margin-bottom: 6px;
-    transition: all 0.2s;
-    cursor: pointer;
+.company-group {
+    margin-bottom: 16px;
 }
 
-.timeline-item.no-details {
+.company-header {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 8px;
+    padding-left: 16px;
+    letter-spacing: -0.3px;
+}
+
+.roles-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.role-item {
+    background: transparent;
+    border: none;
+    padding: 4px 0 4px 28px;
+    margin-bottom: 4px;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.role-item.no-details {
     cursor: default;
 }
 
-.timeline-item:hover {
+.role-item:not(.no-details):hover {
     border-left: 2px solid rgba(0, 102, 170, 0.5);
     box-shadow: 0 0 8px rgba(0, 170, 255, 0.1);
     transform: translateX(1px);
+}
+
+.role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.role-main {
+    flex: 1;
+}
+
+.role-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.role-meta {
+    color: var(--text-secondary);
+    font-size: 10px;
 }
 
 .card-item {
@@ -184,12 +224,12 @@ header {
 .item-title {
     font-size: 13px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--accent);
     margin-bottom: 1px;
 }
 
 .item-subtitle {
-    color: var(--accent);
+    color: var(--text-primary);
     margin-bottom: 1px;
     font-size: 11px;
     font-weight: 600;
@@ -239,7 +279,6 @@ header {
     font-weight: bold;
 }
 
-/* Skills - Simple horizontal bullet list (for simple string items) */
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
@@ -261,7 +300,6 @@ header {
     color: var(--accent);
 }
 
-/* Tools - Grouped by category lists (for categorized items) */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
