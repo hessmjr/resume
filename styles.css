@@ -170,10 +170,6 @@ header {
     cursor: default;
 }
 
-.card-item:hover {
-    /* No hover effects */
-}
-
 .item-header {
     display: flex;
     justify-content: space-between;
@@ -202,28 +198,6 @@ header {
 .item-meta {
     color: var(--text-secondary);
     font-size: 10px;
-}
-
-.item-type {
-    display: inline-block;
-    padding: 2px 6px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border);
-    font-size: 9px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.expand-icon {
-    color: var(--text-secondary);
-    font-size: 12px;
-    transition: transform 0.2s;
-    flex-shrink: 0;
-}
-
-.expand-icon.expanded {
-    transform: rotate(180deg);
 }
 
 .item-details {
@@ -332,8 +306,7 @@ header {
         flex-direction: column;
     }
 
-    .tools-grid,
-    .skills-grid {
+    .tools-grid {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     }
 }
