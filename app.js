@@ -8,6 +8,10 @@ canvas.height = window.innerHeight;
 const particles = [];
 const particleCount = 180;
 
+// Spatial optimization: Grid-based particle management
+const gridSize = 150; // Should be larger than connection distance (120)
+const grid = new Map();
+
 class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -33,6 +37,43 @@ class Particle {
     }
 }
 
+// Spatial optimization helper functions
+function getGridKey(x, y) {
+    const gridX = Math.floor(x / gridSize);
+    const gridY = Math.floor(y / gridSize);
+    return `${gridX},${gridY}`;
+}
+
+function updateGrid() {
+    grid.clear();
+    particles.forEach(particle => {
+        const key = getGridKey(particle.x, particle.y);
+        if (!grid.has(key)) {
+            grid.set(key, []);
+        }
+        grid.get(key).push(particle);
+    });
+}
+
+function getNearbyParticles(particle) {
+    const nearbyParticles = [];
+    const centerX = Math.floor(particle.x / gridSize);
+    const centerY = Math.floor(particle.y / gridSize);
+
+    // Check 9 grid cells (3x3 around the particle)
+    for (let dx = -1; dx <= 1; dx++) {
+        for (let dy = -1; dy <= 1; dy++) {
+            const key = `${centerX + dx},${centerY + dy}`;
+            const cellParticles = grid.get(key);
+            if (cellParticles) {
+                nearbyParticles.push(...cellParticles);
+            }
+        }
+    }
+
+    return nearbyParticles;
+}
+
 for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
 }
@@ -40,11 +81,26 @@ for (let i = 0; i < particleCount; i++) {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    particles.forEach((particle, i) => {
+    // Update all particles first
+    particles.forEach(particle => {
         particle.update();
+    });
+
+    // Update spatial grid
+    updateGrid();
+
+    // Draw particles and connections using optimized algorithm
+    particles.forEach((particle, i) => {
         particle.draw();
 
-        particles.slice(i + 1).forEach(otherParticle => {
+        // Get nearby particles using spatial optimization
+        const nearbyParticles = getNearbyParticles(particle);
+
+        // Only check distance for nearby particles
+        nearbyParticles.forEach(otherParticle => {
+            // Skip self and avoid duplicate connections
+            if (otherParticle === particle) return;
+
             const dx = particle.x - otherParticle.x;
             const dy = particle.y - otherParticle.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
