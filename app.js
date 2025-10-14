@@ -194,32 +194,60 @@ function createTimelineItem(exp) {
 
     item.className = hasDetails ? 'timeline-item' : 'timeline-item no-details';
 
-    item.innerHTML = `
-        <div class="item-header">
-            <div class="item-main">
-                <div class="item-title">${exp.role}</div>
-                <div class="item-subtitle">${exp.company}</div>
-                <div class="item-meta">
-                    ${exp.type ? `<span class="item-type">${exp.type}</span> · ` : ''}
-                    ${exp.duration}${exp.location ? ` · ${exp.location}` : ''}
-                </div>
-            </div>
-        </div>
-        ${hasDetails ? `
-            <div class="item-details">
-                <ul>
-                    ${exp.details.map(detail => `<li>${detail}</li>`).join('')}
-                </ul>
-            </div>
-        ` : ''}
-    `;
+    // Create item header
+    const itemHeader = document.createElement('div');
+    itemHeader.className = 'item-header';
 
+    const itemMain = document.createElement('div');
+    itemMain.className = 'item-main';
+
+    const itemTitle = document.createElement('div');
+    itemTitle.className = 'item-title';
+    itemTitle.textContent = exp.role;
+
+    const itemSubtitle = document.createElement('div');
+    itemSubtitle.className = 'item-subtitle';
+    itemSubtitle.textContent = exp.company;
+
+    const itemMeta = document.createElement('div');
+    itemMeta.className = 'item-meta';
+
+    // Build meta content safely
+    let metaContent = '';
+    if (exp.type) {
+        metaContent += exp.type + ' · ';
+    }
+    metaContent += exp.duration;
+    if (exp.location) {
+        metaContent += ' · ' + exp.location;
+    }
+    itemMeta.textContent = metaContent;
+
+    // Assemble header
+    itemMain.appendChild(itemTitle);
+    itemMain.appendChild(itemSubtitle);
+    itemMain.appendChild(itemMeta);
+    itemHeader.appendChild(itemMain);
+    item.appendChild(itemHeader);
+
+    // Create details section if needed
     if (hasDetails) {
-        const header = item.querySelector('.item-header');
-        const details = item.querySelector('.item-details');
+        const itemDetails = document.createElement('div');
+        itemDetails.className = 'item-details';
 
-        header.addEventListener('click', () => {
-            details.classList.toggle('expanded');
+        const detailsList = document.createElement('ul');
+        exp.details.forEach(detail => {
+            const listItem = document.createElement('li');
+            listItem.textContent = detail;
+            detailsList.appendChild(listItem);
+        });
+
+        itemDetails.appendChild(detailsList);
+        item.appendChild(itemDetails);
+
+        // Add click handler for expand/collapse
+        itemHeader.addEventListener('click', () => {
+            itemDetails.classList.toggle('expanded');
         });
     }
 
@@ -230,13 +258,25 @@ function createEducationItem(edu) {
     const item = document.createElement('div');
     item.className = 'card-item';
 
-    item.innerHTML = `
-        <div class="item-main">
-            <div class="item-title">${edu.school}</div>
-            <div class="item-subtitle">${edu.degree}</div>
-            <div class="item-meta">${edu.duration}</div>
-        </div>
-    `;
+    const itemMain = document.createElement('div');
+    itemMain.className = 'item-main';
+
+    const itemTitle = document.createElement('div');
+    itemTitle.className = 'item-title';
+    itemTitle.textContent = edu.school;
+
+    const itemSubtitle = document.createElement('div');
+    itemSubtitle.className = 'item-subtitle';
+    itemSubtitle.textContent = edu.degree;
+
+    const itemMeta = document.createElement('div');
+    itemMeta.className = 'item-meta';
+    itemMeta.textContent = edu.duration;
+
+    itemMain.appendChild(itemTitle);
+    itemMain.appendChild(itemSubtitle);
+    itemMain.appendChild(itemMeta);
+    item.appendChild(itemMain);
 
     return item;
 }
@@ -253,15 +293,24 @@ function createToolItem(tool) {
     item.className = 'tool-item';
 
     if (typeof tool === 'string') {
-        item.innerHTML = `<div class="tool-list">${tool}</div>`;
+        const toolList = document.createElement('div');
+        toolList.className = 'tool-list';
+        toolList.textContent = tool;
+        item.appendChild(toolList);
     } else {
         const category = Object.keys(tool)[0];
         const items = tool[category];
 
-        item.innerHTML = `
-            <div class="tool-category">${category}</div>
-            <div class="tool-list">${Array.isArray(items) ? items.join(', ') : items}</div>
-        `;
+        const toolCategory = document.createElement('div');
+        toolCategory.className = 'tool-category';
+        toolCategory.textContent = category;
+
+        const toolList = document.createElement('div');
+        toolList.className = 'tool-list';
+        toolList.textContent = Array.isArray(items) ? items.join(', ') : items;
+
+        item.appendChild(toolCategory);
+        item.appendChild(toolList);
     }
 
     return item;
