@@ -1,17 +1,13 @@
-# Mark Hess
+# Resume Website
 
-Senior Software Engineer at Braze, building AI-powered customer engagement solutions.
+A dynamic resume website that generates a portfolio from YAML data. Features an animated background and responsive design.
 
-## What I Do
+- YAML-driven data
 
-- **AI/ML Systems**: Building agentic LLM workflows and predictive models
-- **Data Engineering**: Designing ETL pipelines and analytics infrastructure
-- **Team Leadership**: Leading data teams and technical initiatives
-- **Full-Stack Development**: From customer UI to model deployment
+## How to run
 
-## Background
-
-Started in construction project management, leading 60+ person teams, then transitioned to software engineering through Georgia Tech's CS program. This unique path gives me perspective on both technical implementation and real-world business impact.
+1. Run a local server like `python -m http.server`
+2. Open in browser
 
 ---
 
